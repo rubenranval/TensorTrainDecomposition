@@ -32,8 +32,8 @@ Decomposes `tensor` into a list of low-rank cores.
 
 - With `Method -> "QR"`, the function ignores `"MaxBondDimension"` and `Tolerance` and returns the exact decomposition. `QRDecomposition` does not provide singular values, so truncation is not available.
 - With the default settings, `TensorTrainDecomposition` returns an exact decomposition with no truncation.
-- Setting only `"MaxBondDimension"` controls **memory**: bond dimensions are capped at the specified value.
-- Setting only `Tolerance` controls **accuracy**: bond dimensions adapt automatically to meet the error target.
+- Setting only `"MaxBondDimension"` controls memory: bond dimensions are capped at the specified value.
+- Setting only `Tolerance` controls accuracy: bond dimensions adapt automatically to meet the error target.
 - With `Method -> "SVD"`, singular values are discarded until the sum of the squared discarded values reaches $\varepsilon^2$, where $\varepsilon$ is the value specified by `Tolerance`.
 
 For more mathematical background on this algorithm, see the Wikipedia articles on [Tensor Network](https://en.wikipedia.org/wiki/Tensor_network) and [Matrix Product State](https://en.wikipedia.org/wiki/Matrix_product_state).
@@ -74,7 +74,7 @@ Dimensions /@ %
 {{1, 2, 2}, {2, 3, 4}, {4, 4, 1}}
 ```
 
-Note how the cores chain together: the trailing bond dimension of each core matches the leading bond dimension of the next, and the outer bonds are both 1.
+Note how the cores chain together: the trailing bond dimension of each core matches the leading bond dimension of the next (in this case 2 and 4), and the outer bonds are both 1.
 
 ### Options
 
@@ -123,7 +123,7 @@ TensorTrainDecomposition[noisyTensor, Tolerance -> 0.1]
     {-0.445962, -0.128103, 0.695517, 0.536646, 0.113905},
     {-0.49952, -0.170061, 0.280364, -0.777181, -0.197347},
     {-0.457945, 0.553949, -0.269445, 0.22803, -0.599024}}},
- (* ... middle cores omitted for brevity ... *)
+ (* ... *)
  {{{3.23721}, {2.4514}, {2.96524}, {2.84792}, {2.12999}}, ...}}
 ```
 
