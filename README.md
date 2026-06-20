@@ -198,7 +198,7 @@ Row[MapThread[
     Append[("\[Chi] = " <> ToString[#] &) /@ ranks, "exact"]}]]
 ```
 
-<img src="/reconstruction1.png" width="480">
+<img src="/img/reconstruction1.png" width="480">
 
 ## Installation
 
