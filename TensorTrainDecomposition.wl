@@ -98,6 +98,7 @@ TensorTrainDecomposition[tensor_, opts : OptionsPattern[]] :=
 
    AppendTo[cores, ArrayReshape[residual, {r, dims[[d]], 1}]];
    cores];
+   
 
 
 End[];
